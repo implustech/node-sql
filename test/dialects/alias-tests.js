@@ -26,6 +26,15 @@ Harness.test({
     text  : 'SELECT ("customer"."name" IS NULL) "nameIsNull" FROM "customer"',
     string: 'SELECT ("customer"."name" IS NULL) "nameIsNull" FROM "customer"'
   },
+  /*
+    SELECT (`name` IS NULL) AS `nameIsNull`
+    FROM
+    (SELECT NULL AS `name` FROM system.one)
+  */
+  clickhouse: {
+    text  : 'SELECT (`name` IS NULL) AS `nameIsNull` FROM `customer`',
+    string: 'SELECT (`name` IS NULL) AS `nameIsNull` FROM `customer`'
+  },
   params: []
 });
 
@@ -51,6 +60,17 @@ Harness.test({
     text  : 'SELECT ("customer"."name" + "customer"."age") "nameAndAge" FROM "customer" WHERE (("customer"."age" > :1) AND ("customer"."age" < :2))',
     string: 'SELECT ("customer"."name" + "customer"."age") "nameAndAge" FROM "customer" WHERE (("customer"."age" > 10) AND ("customer"."age" < 20))'
   },
+  // Clickhouse does not support String + int, only String || String. So I'll not write a test case here. But checkout the query below.
+  /*
+    SELECT (`name` || CAST(`age` AS String)) AS `nameAndAge`
+    FROM
+    (SELECT
+      arrayJoin(arrayMap(x -> x + 1, range(3))) AS `index`,
+      arrayElement(['uno', 'dos', 'tres'], index) AS `name`,
+      arrayElement([5, 15, 25], index) AS `age`
+     FROM system.one)
+    WHERE ((`age` > 10) AND (`age` < 20))
+  */
   params: [10, 20]
 });
 
@@ -75,6 +95,19 @@ Harness.test({
   oracle: {
     text  : 'SELECT ("customer"."age" BETWEEN :1 AND :2) "ageBetween" FROM "customer"',
     string: 'SELECT ("customer"."age" BETWEEN 10 AND 20) "ageBetween" FROM "customer"'
+  },
+  /*
+    SELECT (`age` BETWEEN 10 AND 20) AS `ageBetween`
+    FROM
+    (SELECT
+      arrayJoin(arrayMap(x -> x + 1, range(3))) AS `index`,
+      arrayElement(['uno', 'dos', 'tres'], index) AS `name`,
+      arrayElement([5, 15, 25], index) AS `age`
+     FROM system.one)
+  */
+  clickhouse: {
+    text  : 'SELECT (`age` BETWEEN ? AND ?) AS `ageBetween` FROM `customer`',
+    string: 'SELECT (`age` BETWEEN 10 AND 20) AS `ageBetween` FROM `customer`'
   },
   params: [10, 20]
 });
@@ -101,6 +134,20 @@ Harness.test({
     text  : 'SELECT ROUND("customer"."age", :1) FROM "customer"',
     string: 'SELECT ROUND("customer"."age", 2) FROM "customer"'
   },
+  // Mind the case
+  /*
+    SELECT round(`age`, 2)
+    FROM
+    (SELECT
+      arrayJoin(arrayMap(x -> x + 1, range(3))) AS `index`,
+      arrayElement(['uno', 'dos', 'tres'], index) AS `name`,
+      arrayElement([5, 15, 25], index) AS `age`
+     FROM system.one)
+  */
+  clickhouse: {
+    text  : 'SELECT round(`age`, ?) FROM `customer`',
+    string: 'SELECT round(`age`, 2) FROM `customer`'
+  },
   params: [2]
 });
 
@@ -118,5 +165,15 @@ Harness.test({
     text  : 'SELECT (`customer`.`age` NOT BETWEEN ? AND ?) AS `ageNotBetween` FROM `customer`',
     string: 'SELECT (`customer`.`age` NOT BETWEEN 10 AND 20) AS `ageNotBetween` FROM `customer`'
   },
+  // Clickhouse: not supported. can use NOT the following way but won't be able to do it without introducing too much stuff
+  /*
+    SELECT (NOT `age` BETWEEN 10 AND 20) AS `ageNotBetween`
+    FROM
+    (SELECT
+      arrayJoin(arrayMap(x -> x + 1, range(3))) AS `index`,
+      arrayElement(['uno', 'dos', 'tres'], index) AS `name`,
+      arrayElement([5, 15, 25], index) AS `age`
+     FROM system.one)
+  */
   params: [10, 20]
 });
