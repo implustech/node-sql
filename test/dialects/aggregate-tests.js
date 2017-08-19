@@ -56,6 +56,10 @@ Harness.test({
     text  : 'SELECT COUNT(*) "post_count" FROM "post"',
     string: 'SELECT COUNT(*) "post_count" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT COUNT() AS `post_count` FROM `post`',
+    string: 'SELECT COUNT() AS `post_count` FROM `post`'
+  },
   params: []
 });
 
@@ -80,6 +84,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT COUNT(*) "post_amount" FROM "post"',
     string: 'SELECT COUNT(*) "post_amount" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT COUNT() AS `post_amount` FROM `post`',
+    string: 'SELECT COUNT() AS `post_amount` FROM `post`'
   },
   params: []
 });
@@ -106,6 +114,10 @@ Harness.test({
     text  : 'SELECT COUNT("post"."content") "content_count" FROM "post"',
     string: 'SELECT COUNT("post"."content") "content_count" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT COUNT(`content`) AS `content_count` FROM `post`',
+    string: 'SELECT COUNT(`content`) AS `content_count` FROM `post`'
+  },
   params: []
 });
 
@@ -130,6 +142,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT COUNT("post"."content") "content_count" FROM "post"',
     string: 'SELECT COUNT("post"."content") "content_count" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT COUNT(`content`) AS `content_count` FROM `post`',
+    string: 'SELECT COUNT(`content`) AS `content_count` FROM `post`'
   },
   params: []
 });
@@ -156,6 +172,10 @@ Harness.test({
     text  : 'SELECT COUNT("post"."content") "content_count" FROM "post"',
     string: 'SELECT COUNT("post"."content") "content_count" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT COUNT(`content`) AS `content_count` FROM `post`',
+    string: 'SELECT COUNT(`content`) AS `content_count` FROM `post`'
+  },
   params: []
 });
 
@@ -176,6 +196,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT COUNT(*) "customer_count" FROM "customer"',
     string: 'SELECT COUNT(*) "customer_count" FROM "customer"'
+  },
+  clickhouse: {
+    text  : 'SELECT COUNT() AS `customer_count` FROM `customer`',
+    string: 'SELECT COUNT() AS `customer_count` FROM `customer`'
   },
   params: []
 });
@@ -202,6 +226,10 @@ Harness.test({
     text  : 'SELECT MIN("post"."id") "id_min" FROM "post"',
     string: 'SELECT MIN("post"."id") "id_min" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT MIN(`id`) AS `id_min` FROM `post`',
+    string: 'SELECT MIN(`id`) AS `id_min` FROM `post`'
+  },
   params: []
 });
 
@@ -226,6 +254,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT MIN("post"."id") "min_id" FROM "post"',
     string: 'SELECT MIN("post"."id") "min_id" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT MIN(`id`) AS `min_id` FROM `post`',
+    string: 'SELECT MIN(`id`) AS `min_id` FROM `post`'
   },
   params: []
 });
@@ -252,6 +284,10 @@ Harness.test({
     text  : 'SELECT MIN("post"."id") "min_id" FROM "post"',
     string: 'SELECT MIN("post"."id") "min_id" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT MIN(`id`) AS `min_id` FROM `post`',
+    string: 'SELECT MIN(`id`) AS `min_id` FROM `post`'
+  },
   params: []
 });
 
@@ -276,6 +312,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT MAX("post"."id") "id_max" FROM "post"',
     string: 'SELECT MAX("post"."id") "id_max" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT MAX(`id`) AS `id_max` FROM `post`',
+    string: 'SELECT MAX(`id`) AS `id_max` FROM `post`'
   },
   params: []
 });
@@ -302,6 +342,10 @@ Harness.test({
     text  : 'SELECT MAX("post"."id") "max_id" FROM "post"',
     string: 'SELECT MAX("post"."id") "max_id" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT MAX(`id`) AS `max_id` FROM `post`',
+    string: 'SELECT MAX(`id`) AS `max_id` FROM `post`'
+  },
   params: []
 });
 
@@ -326,6 +370,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT MAX("post"."id") "max_id" FROM "post"',
     string: 'SELECT MAX("post"."id") "max_id" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT MAX(`id`) AS `max_id` FROM `post`',
+    string: 'SELECT MAX(`id`) AS `max_id` FROM `post`'
   },
   params: []
 });
@@ -352,6 +400,10 @@ Harness.test({
     text  : 'SELECT SUM("post"."id") "id_sum" FROM "post"',
     string: 'SELECT SUM("post"."id") "id_sum" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT SUM(`id`) AS `id_sum` FROM `post`',
+    string: 'SELECT SUM(`id`) AS `id_sum` FROM `post`'
+  },
   params: []
 });
 
@@ -376,6 +428,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT SUM("post"."id") "sum_id" FROM "post"',
     string: 'SELECT SUM("post"."id") "sum_id" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT SUM(`id`) AS `sum_id` FROM `post`',
+    string: 'SELECT SUM(`id`) AS `sum_id` FROM `post`'
   },
   params: []
 });
@@ -402,6 +458,10 @@ Harness.test({
     text  : 'SELECT SUM("post"."id") "sum_id" FROM "post"',
     string: 'SELECT SUM("post"."id") "sum_id" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT SUM(`id`) AS `sum_id` FROM `post`',
+    string: 'SELECT SUM(`id`) AS `sum_id` FROM `post`'
+  },
   params: []
 });
 
@@ -426,6 +486,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT AVG("post"."id") "id_avg" FROM "post"',
     string: 'SELECT AVG("post"."id") "id_avg" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT AVG(`id`) AS `id_avg` FROM `post`',
+    string: 'SELECT AVG(`id`) AS `id_avg` FROM `post`'
   },
   params: []
 });
@@ -452,6 +516,10 @@ Harness.test({
     text  : 'SELECT AVG("post"."id") "avg_id" FROM "post"',
     string: 'SELECT AVG("post"."id") "avg_id" FROM "post"'
   },
+  clickhouse: {
+    text  : 'SELECT AVG(`id`) AS `avg_id` FROM `post`',
+    string: 'SELECT AVG(`id`) AS `avg_id` FROM `post`'
+  },
   params: []
 });
 
@@ -476,6 +544,10 @@ Harness.test({
   oracle: {
     text  : 'SELECT AVG("post"."id") "avg_id" FROM "post"',
     string: 'SELECT AVG("post"."id") "avg_id" FROM "post"'
+  },
+  clickhouse: {
+    text  : 'SELECT AVG(`id`) AS `avg_id` FROM `post`',
+    string: 'SELECT AVG(`id`) AS `avg_id` FROM `post`'
   },
   params: []
 });
