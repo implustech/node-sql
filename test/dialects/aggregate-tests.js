@@ -28,8 +28,8 @@ Harness.test({
     string: 'SELECT COUNT(*) "post_count" FROM "post"'
   },
   clickhouse: {
-    text  : 'SELECT COUNT() AS post_count FROM post',
-    string: 'SELECT COUNT() AS post_count FROM post'
+    text  : 'SELECT COUNT() AS `post_count` FROM `post`',
+    string: 'SELECT COUNT() AS `post_count` FROM `post`'
   },
   params: []
 });
