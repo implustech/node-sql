@@ -165,5 +165,15 @@ Harness.test({
     text  : 'SELECT (`customer`.`age` NOT BETWEEN ? AND ?) AS `ageNotBetween` FROM `customer`',
     string: 'SELECT (`customer`.`age` NOT BETWEEN 10 AND 20) AS `ageNotBetween` FROM `customer`'
   },
+  // Clickhouse: not supported. can use NOT the following way but won't be able to do it without introducing too much stuff
+  /*
+    SELECT (NOT `age` BETWEEN 10 AND 20) AS `ageNotBetween`
+    FROM
+    (SELECT
+      arrayJoin(arrayMap(x -> x + 1, range(3))) AS `index`,
+      arrayElement(['uno', 'dos', 'tres'], index) AS `name`,
+      arrayElement([5, 15, 25], index) AS `age`
+     FROM system.one)
+  */
   params: [10, 20]
 });
