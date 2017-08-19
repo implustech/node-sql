@@ -26,6 +26,10 @@ Harness.test({
     text  : 'ALTER TABLE "post" DROP ("content")',
     string: 'ALTER TABLE "post" DROP ("content")'
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -50,6 +54,10 @@ Harness.test({
   oracle: {
     text  : 'ALTER TABLE "post" DROP ("content", "userId")',
     string: 'ALTER TABLE "post" DROP ("content", "userId")'
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   },
   params: []
 });
@@ -76,6 +84,10 @@ Harness.test({
     text  : 'ALTER TABLE "post" DROP ("content", "userId")',
     string: 'ALTER TABLE "post" DROP ("content", "userId")'
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -96,6 +108,10 @@ Harness.test({
   mssql: {
     text  : 'EXEC sp_rename [post], [posts]',
     string: 'EXEC sp_rename [post], [posts]'
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   },
   params: []
 });
@@ -134,6 +150,10 @@ Harness.test({
     text  : 'ALTER TABLE "group" ADD ("id" varchar(100))',
     string: 'ALTER TABLE "group" ADD ("id" varchar(100))'
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -158,6 +178,10 @@ Harness.test({
   oracle: {
     text  : 'ALTER TABLE "group" ADD ("id" varchar(100), "userId" varchar(100))',
     string: 'ALTER TABLE "group" ADD ("id" varchar(100), "userId" varchar(100))'
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   },
   params: []
 });
@@ -184,6 +208,10 @@ Harness.test({
     text  : 'ALTER TABLE "group" ADD ("id" varchar(100), "userId" varchar(100))',
     string: 'ALTER TABLE "group" ADD ("id" varchar(100), "userId" varchar(100))'
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -204,6 +232,10 @@ Harness.test({
   mssql: {
    text  : 'EXEC sp_rename \'[group].[userId]\', [newUserId], \'COLUMN\'',
    string: 'EXEC sp_rename \'[group].[userId]\', [newUserId], \'COLUMN\''
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   },
   params: []
 });
@@ -247,6 +279,10 @@ Harness.test({
    text  : 'EXEC sp_rename \'[group].[userId]\', [id], \'COLUMN\'',
    string: 'EXEC sp_rename \'[group].[userId]\', [id], \'COLUMN\''
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -276,6 +312,10 @@ Harness.test({
   mssql: {
    text  : 'EXEC sp_rename \'[UserWithSignature].[Signature]\', [sig], \'COLUMN\'',
    string: 'EXEC sp_rename \'[UserWithSignature].[Signature]\', [sig], \'COLUMN\''
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   }
 });
 
@@ -313,6 +353,10 @@ Harness.test({
     text  : 'ALTER TABLE "post" ADD ("userId" int REFERENCES "user"("id"))',
     string: 'ALTER TABLE "post" ADD ("userId" int REFERENCES "user"("id"))'
   },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
+  },
   params: []
 });
 
@@ -333,6 +377,10 @@ Harness.test({
   oracle: {
     text  : 'ALTER TABLE "post" ADD ("picture" varchar(100))',
     string: 'ALTER TABLE "post" ADD ("picture" varchar(100))'
+  },
+  clickhouse: {
+    text  : 'Not Implemeneted',
+    throws: true
   },
   params: []
 });
