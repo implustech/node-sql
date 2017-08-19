@@ -9,7 +9,8 @@ var dialects = {
   sqlite : require('../../lib/dialect/sqlite'),
   mysql  : require('../../lib/dialect/mysql'),
   mssql  : require('../../lib/dialect/mssql'),
-  oracle  : require('../../lib/dialect/oracle')
+  oracle  : require('../../lib/dialect/oracle'),
+  clickhouse  : require('../../lib/dialect/clickhouse')
 };
 
 module.exports = {
